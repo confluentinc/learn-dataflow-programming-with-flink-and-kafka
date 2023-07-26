@@ -1,0 +1,9 @@
+name: learn-dataflow-programming-with-flink-and-kafka
+lang: unknown
+lang_version: unknown
+git:
+  enable: true
+github:
+  enable: true
+codeowners:
+  enable: true
