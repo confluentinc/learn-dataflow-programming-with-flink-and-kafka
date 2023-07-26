@@ -1,0 +1,27 @@
+image: gitpod/workspace-java-11
+
+tasks:
+  - before: |
+      ./install_flink.sh
+      export PATH="$PATH:/workspace/learn-dataflow-programming-with-flink-and-kafka/flink-1.17.1/bin"
+      start-cluster.sh
+      exit
+  - command: gp preview http://localhost:8081 && exit
+  - name: Clickstream
+    command: |
+      export PATH="$PATH:/workspace/learn-dataflow-programming-with-flink-and-kafka/flink-1.17.1/bin"
+      cd exercises
+  - name: Misc
+    command: |
+      export PATH="$PATH:/workspace/learn-dataflow-programming-with-flink-and-kafka/flink-1.17.1/bin"
+      cd exercises
+
+ports:
+  - port: 8081
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+
+workspaceLocation: /workspace/learn-dataflow-programming-with-flink-and-kafka
