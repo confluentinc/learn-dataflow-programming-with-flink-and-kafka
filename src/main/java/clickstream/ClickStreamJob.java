@@ -76,6 +76,6 @@ public class ClickStreamJob {
         return stream
             .keyBy(ClickStreamRecord::getRequest)
             .window(TumblingEventTimeWindows.of(Time.minutes(1)))
-            .process(new ClickStreamProcessFunction());
+            .process(new ClickStreamFunction());
     }
 }

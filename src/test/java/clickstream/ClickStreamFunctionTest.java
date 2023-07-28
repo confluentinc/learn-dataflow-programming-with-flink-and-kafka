@@ -20,9 +20,9 @@ import static clickstream.TestHelpers.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ClickStreamProcessFunctionTest {
+class ClickStreamFunctionTest {
     private StreamExecutionEnvironment env;
-    private ClickStreamProcessFunction processFunction;
+    private ClickStreamFunction processFunction;
     private DataStream.Collector<ClickStreamAnalytics> collector;
     private WatermarkStrategy<ClickStreamRecord> defaultWatermarkStrategy;
 
@@ -63,7 +63,7 @@ class ClickStreamProcessFunctionTest {
     @BeforeEach
     public void setup() {
         env = StreamExecutionEnvironment.getExecutionEnvironment();
-        processFunction = new ClickStreamProcessFunction();
+        processFunction = new ClickStreamFunction();
         collector = new DataStream.Collector<>();
         defaultWatermarkStrategy = WatermarkStrategy
             .<ClickStreamRecord>forMonotonousTimestamps()

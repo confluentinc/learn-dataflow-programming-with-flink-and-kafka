@@ -4,7 +4,7 @@ import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
-public class ClickStreamProcessFunction extends ProcessWindowFunction<ClickStreamRecord, ClickStreamAnalytics, String, TimeWindow> {
+public class ClickStreamFunction extends ProcessWindowFunction<ClickStreamRecord, ClickStreamAnalytics, String, TimeWindow> {
     @Override
     public void process(
         String request,
