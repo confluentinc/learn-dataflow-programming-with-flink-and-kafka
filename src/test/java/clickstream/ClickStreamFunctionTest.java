@@ -25,6 +25,7 @@ class ClickStreamFunctionTest {
     private ClickStreamFunction processFunction;
     private DataStream.Collector<ClickStreamAnalytics> collector;
     private WatermarkStrategy<ClickStreamRecord> defaultWatermarkStrategy;
+    private final long windowSizeInMillis = 500;
 
     static final MiniClusterResourceConfiguration miniClusterConfig = new MiniClusterResourceConfiguration.Builder()
         .setNumberSlotsPerTaskManager(2)
@@ -57,7 +58,7 @@ class ClickStreamFunctionTest {
 
         return stream
             .keyBy(ClickStreamRecord::getRequest)
-            .window(TumblingEventTimeWindows.of(Time.milliseconds(10)));
+            .window(TumblingEventTimeWindows.of(Time.milliseconds(windowSizeInMillis)));
     }
 
     @BeforeEach
