@@ -20,8 +20,28 @@ A [Gitpod](https://gitpod.io/) configuration is available for this repository. Y
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/confluentinc/learn-dataflow-programming-with-flink-and-kafka)
 
+## Click Stream Connector
+
+This job will pull data from a topic named clickstream. It assumes you have created the topic in your cluster and are using the Confluent datagen connector to produce clickstream data to the topic.
+
 ## Repo Structure
 
 ### install_flink.sh
 
 This script is used by the `.gitpod.yml` to install Flink. However, if you are setting up a local environment, you may want to refer to this script (or even execute it) to get your own Flink installation ready.
+
+### pom.xml
+
+The Maven configuration file for the Java project.
+
+### src
+
+This folder contains all of the source code for the project.
+
+### start_clickstream.sh
+
+A helper script for compiling and running the Flink job.
+
+### consumer.properties & producer.properties
+
+Inside the src/main/resources folder you will find two properties files named `consumer.properties` and `producer.properties`. These files contain configurations required to connect to the Kafka cluster. However, they contain placeholders for the `<BOOTSTRAP_SERVER>` `<USERNAME>` and `<PASSWORD>`. You will need to provide your own values if you want to run the code.
