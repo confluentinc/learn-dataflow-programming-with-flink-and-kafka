@@ -5,11 +5,8 @@ tasks:
       ./install_flink.sh
       export PATH="$PATH:/workspace/learn-dataflow-programming-with-flink-and-kafka/flink-1.17.0/bin"
       start-cluster.sh
-      taskmanager.sh start
-      taskmanager.sh start
-      taskmanager.sh start
       exit
-  - command: gp preview http://localhost:8081 && exit
+  - command: gp preview http://localhost:8081
   - name: Clickstream
     command: |
       export PATH="$PATH:/workspace/learn-dataflow-programming-with-flink-and-kafka/flink-1.17.0/bin"
